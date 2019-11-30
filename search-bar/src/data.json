@@ -1,0 +1,48 @@
+{
+    "menuItems": [
+        {
+            "category": "Beverage",
+            "title": "Hot Cider",
+            "ingredients": [
+                "Cider",
+                "Hotness"
+            ]
+        },
+        {
+            "category": "Beverage",
+            "title": "Hot Chocolate",
+            "ingredients": [
+                "Chocolate",
+                "Hotness"
+            ]
+        },
+        {
+            "category": "Beverage",
+            "title": "Egg Nog",
+            "ingredients": [
+                "Egg nog",
+                "Rum"
+            ],
+            "tags": [
+                "Alcoholic"
+            ]
+        },
+        {
+            "category": "Food",
+            "title": "Sugar Cookie",
+            "ingredients": [
+                "Sugar",
+                "Eggs",
+                "Flour",
+                "Salt"
+            ]
+        },
+        {
+            "category": "Beverage",
+            "title": "Soda",
+            "ingredients": [
+                "Corn Syrup"
+            ]
+        }
+    ]
+}
