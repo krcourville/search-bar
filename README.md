@@ -5,7 +5,7 @@ using only the web browser.
 
 ## Running the App
 
-Simple browse to <http://www.coderken.com/search-bar/search-bar/public/>
+Simply browse to <https://www.coderken.com/search-bar/search-bar/public/>
 
 ## Technology
 
