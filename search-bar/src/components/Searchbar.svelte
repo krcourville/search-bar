@@ -1,45 +1,48 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  const dispatch = createEventDispatcher();
-
   export let term = null;
 
-  function onTermChanged() {
-    dispatch("change", { term });
-  }
-
   function handleSubmit() {
-    onTermChanged();
+    // do nothing and let 2-way binding do its thing
   }
 
   function handleClear() {
     term = null;
-    onTermChanged();
   }
 </script>
 
-<main>
-  <form class="col s5" on:submit|preventDefault={handleSubmit}>
-    <div class="row">
-      <div class="input-field col-s12">
-        <i class="material-icons prefix">search</i>
-        <input
-          autocomplete="off"
-          bind:value={term}
-          id="search"
-          type="text"
-          placeholder="Search" />
+<style>
+  .layout {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+  .flex-1 {
+    flex-grow: 1;
+  }
+</style>
 
-      </div>
+<main>
+  <form class="layout" on:submit|preventDefault={handleSubmit}>
+    <div class="input-field flex-1">
+      <i class="material-icons prefix">search</i>
+      <input
+        autocomplete="off"
+        bind:value={term}
+        id="search"
+        type="text"
+        placeholder="Search" />
     </div>
-    <div class="row center">
-      <button type="submit" class="btn waves-effect waves-light">Search</button>
+
+    <div class="input-field">
       <button
         class="btn waves-effect waves-light"
         on:click|preventDefault={handleClear}>
         Clear
       </button>
     </div>
+
   </form>
 </main>
