@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Card from "./components/Card.svelte";
   import LightRope from "./components/LightRope.svelte";
+  import Searchbar from "./components/Searchbar.svelte";
 
   export let menuItemsRepo;
 
@@ -9,18 +10,11 @@
 
   let searchResults = [];
 
-  function doSearch() {
-    searchResults = menuItemsRepo.search(searchTerm);
+  function doSearch(term = null) {
+    searchResults = menuItemsRepo.search(term);
   }
 
-  function handleSubmit() {
-    doSearch();
-  }
-
-  function handleClear() {
-    searchTerm = null;
-    doSearch();
-  }
+  $: doSearch(searchTerm);
 
   onMount(() => {
     doSearch();
@@ -69,27 +63,7 @@
         width="64" />
     </h1>
 
-    <form class="col s5" on:submit|preventDefault={handleSubmit}>
-      <class class="row">
-        <div class="input-field col-s12">
-          <i class="material-icons prefix">search</i>
-          <input
-            autocomplete="off"
-            bind:value={searchTerm}
-            id="search"
-            type="search"
-            placeholder="Search" />
-          <button type="submit" class="btn waves-effect waves-light">
-            Search
-          </button>
-          <button
-            class="btn waves-effect waves-light"
-            on:click|preventDefault={handleClear}>
-            Clear
-          </button>
-        </div>
-      </class>
-    </form>
+    <Searchbar bind:term={searchTerm} />
 
     <h6>Items Found: {searchResults.length}</h6>
 
