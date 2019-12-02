@@ -1,6 +1,7 @@
 <script>
-  export let items = [];
   import Card from "./Card.svelte";
+
+  export let items = [];
 </script>
 
 <style>
